@@ -1,0 +1,5 @@
+/export/logs/ucplogs/sncdata/manager/
+
+目录下 bin
+       jars
+       目录更新相应的包即可

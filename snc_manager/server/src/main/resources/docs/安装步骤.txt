@@ -1,0 +1,14 @@
+
+common 1. 公共日志目录 /export/logs/ucplogs/sncdata/manager/ 确认已经建立和拥有部署用户的权限
+
+common 2. sncdata_X.X.X.zip 解压到目录 /export/icity/compute-online/snc-manager/下
+ (严格按照这个部署路径,和ucp 平台保持一致,能省的很多事情,和避免错误,
+      如果迁移别的路径，修改 launch.sh 的APP_DIR 路径
+ )
+
+
+
+1. 配置参数
+   根据参数配置说明文档配置 /export/icity/compute-online/snc-manager/config/manager.properties 配置文件
+2 多节点部署(不支持，后续升级HA)
+

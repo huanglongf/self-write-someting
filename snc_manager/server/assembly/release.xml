@@ -1,0 +1,67 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+	<id>dist</id>
+	<formats>
+		<format>tgz</format>
+	</formats>
+	<baseDirectory>SNC-Master</baseDirectory>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<files>
+		<!--jar-->
+		<file>
+			<source>${project.build.directory}/master.${packaging}</source>
+			<outputDirectory>./bin</outputDirectory>
+			<destName>master.${packaging}</destName>
+			<fileMode>0755</fileMode>
+		</file>
+		<!--manager.properties-->
+		<file>
+			<source>../config/target/classes/manager.properties</source>
+			<outputDirectory>./config</outputDirectory>
+		</file>
+		<!--logback-->
+		<file>
+			<source>${project.build.directory}/classes/logback.xml</source>
+			<outputDirectory>./config</outputDirectory>
+		</file>
+	</files>
+
+	<fileSets>
+		<!--lib-->
+		<fileSet>
+			<directory>${project.build.directory}/lib</directory>
+			<outputDirectory>./jars</outputDirectory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+			<fileMode>0755</fileMode>
+		</fileSet>
+		<!--doc-->
+		<fileSet>
+			<directory>${project.build.directory}/classes/docs</directory>
+			<outputDirectory>./doc</outputDirectory>
+			<includes>
+				<include>**</include>
+				<include>*</include>
+			</includes>
+		</fileSet>
+
+		<!--配置文件-->
+		<fileSet>
+			<directory>${project.build.directory}/classes</directory>
+			<outputDirectory>./config</outputDirectory>
+			<includes>
+				<include>*.xml</include>
+			</includes>
+		</fileSet>
+		<!--bootstrap-->
+		<fileSet>
+			<directory>${project.build.directory}/classes/bootstrap</directory>
+			<outputDirectory>./</outputDirectory>
+			<includes>
+				<include>*.sh</include>
+			</includes>
+			<fileMode>0755</fileMode>
+		</fileSet>
+	</fileSets>
+</assembly>
